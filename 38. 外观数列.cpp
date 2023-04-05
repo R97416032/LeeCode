@@ -7,18 +7,12 @@ public:
         else{
             string temp=countAndSay(n-1),res="";
             int i=0,j=0;
-            for(;i<temp.size();i=j){
-                int count=1;
-                for(j=i+1;j<temp.size();){
-                    if(temp[i]==temp[j]){
-                        count++;
-                        j++;
-                    }
-                    else{
-                        break;
-                    }
+            while(j<temp.size()){
+                while(j<temp.size()&&temp[i]==temp[j]){
+                    j++;
                 }
-                res=res+to_string(count)+temp[i];
+                res=res+to_string(j-i)+temp[i];
+                i=j;
             }
             return res;
         }
